@@ -73,7 +73,7 @@ MD_W_RESOLUTION  = 6;%  转速分辨率[rad/s]]
 % 航向得分的比重、距离得分的比重、速度得分的比重、向前模拟轨迹的时间
 evalParam = [0.05, 0.2 ,0.1, 3.0];
 
-area      = [-1 11 -1 11];% 模拟区域范围 [xmin xmax ymin ymax]
+area      =[-3 14 -3 14];% 模拟区域范围 [xmin xmax ymin ymax]
 
 % 模拟实验的结果
 result.x=[];   %累积存储走过的轨迹点的状态值 
@@ -93,7 +93,7 @@ for i = 1:5000
     result.x = [result.x; x'];  %最新结果 以列的形式 添加到result.x
     
     % 是否到达目的地
-    if norm(x(POSE_X:POSE_Y)-goal')<0.5   % norm函数来求得坐标上的两个点之间的距离
+    if norm(x(POSE_X:POSE_Y)-goal')<0.25   % norm函数来求得坐标上的两个点之间的距离
         disp('Arrive Goal!!');break;
     end
     

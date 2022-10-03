@@ -6,7 +6,7 @@ function dist = CalcDistEval(x,ob,R)
 dist=100;
 ob=ob';
 for io = 1:length(ob(:,1))  
-    disttmp = norm(ob(io,1:2)-x(1:2)')-R; %到第io个障碍物的距离 - 障碍物半径  ！！！有可能出现负值吗？？
+    disttmp = norm(ob(io,1:2)-x(1:2)')-R-0.01; %到第io个障碍物的距离 - 障碍物半径  ！！！有可能出现负值吗？？
     if dist > disttmp   % 大于最小值 则选择最小值
         dist = disttmp;
     end
